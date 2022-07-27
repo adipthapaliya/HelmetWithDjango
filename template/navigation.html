@@ -1,0 +1,114 @@
+<header>
+        
+    <nav class="navbar navbar-expand-xl fixed-top navbar-dark bg-transparent">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-2 fw-bold" href="/">Sneaker Hub</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="menu-option navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active fs-5" aria-current="page" href="/"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-5" href="/about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fs-5" href="/shop">Shop</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link fs-5" href="/contact">Contact Us</a>
+              </li>
+            </ul>
+            
+            <ul class="navbar-nav" style="width: 8vw">
+              {% if request.user.is_authenticated %}
+
+              <li class="nav-iteam">
+                <a href="/cart/{{user.id}}" class="nav-link"
+                  ><i
+                    class="fa fa-shopping-cart"
+                    style="font-size: 1.6rem"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </li>
+
+              {% else %}
+
+              <li class="nav-iteam">
+                <a href="/login" class="nav-link"
+                  ><i
+                    class="fa fa-shopping-cart"
+                    style="font-size: 1.6rem"
+                    aria-hidden="true"
+                  ></i>
+                </a>
+              </li>
+
+
+              {% endif %}
+
+
+
+
+              <!-- User Name or login -->
+
+              {% if request.user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle fs-5"
+                  href=""
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {{request.user.username}}
+                </a>
+                <ul
+                  class="dropdown-menu bg-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li><a class="dropdown-item text-light" href="/cart/{{request.user.id}}">Cart</a></li>
+                  <li><a class="dropdown-item text-light" href="/purchase/{{request.user.id}}">Purchase</a></li>
+                  <li >
+                   
+                    <a class="dropdown-item text-light" href="/logout"
+                      >Logout </a
+                    >
+                  </li>
+
+                {% else %}
+              <li class="nav-iteam">
+                <a href="/login" class="nav-link"
+                  ><i
+                    class="fa fa-user"
+                    style="font-size: 1.6rem"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              {% endif %}
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    
+      
+</header>

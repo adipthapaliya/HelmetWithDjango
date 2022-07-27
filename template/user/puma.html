@@ -1,0 +1,56 @@
+{% extends 'base.html'%}
+
+{% block title%} Admin Home {%endblock%}
+
+{%load static %}
+
+{%block css %}  <link rel="stylesheet" href="{% static 'css/shop.css'%}"> {% endblock%}
+
+
+{%block content%}
+
+<main>
+    <div class="slider">
+
+    </div>
+    <div class="container first-container">
+      <div class="row mb-5 our-shop">
+        <div class="col-12 mb-3">
+          <ul class="d-flex justify-content-around">
+            <li class=""><a href="/shop/nike" >Nike</a></li>
+            <li class=""><a href="/shop/adidas">Adidas</a></li>
+            <li class=""><a href="/shop/converse">Converse</a></li>
+            <li class=""><a href="/shop/puma"  class="active-shop">Puma</a></li>
+          </ul>
+
+          <hr />
+        </div>
+        <div class="row mb-5 racing-iteam  ">
+
+            {% for item in puma %}
+          <div class="col-md-4 col-6 mb-5 pt-5">
+            <div class="helmet-name">
+              <h3><b>{{item.product_name}}</b></h3>
+            </div>
+            <div class="helmet-img">
+              <img src="/{{item.product_image}}" alt="">
+            </div>
+            <div class="helmet-button float-end ">
+                <a href="/viewdetails/{{item.id}}">
+                  <button> View Details</button>
+
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+    </main>
+
+
+
+{%endblock%}
+
+

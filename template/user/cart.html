@@ -1,0 +1,78 @@
+{% extends 'base.html'%}
+
+{% block title%} Home {%endblock%}
+
+{%load static %}
+
+{%block css %}
+<style>
+     .slider{
+    height: 70vh;
+    background-image: url(../../static/image/index/motorcycle-6288958_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+  .first-container{
+    margin: 10vh 0;
+  }
+
+</style>
+{% endblock%}
+
+
+{%block content%}
+
+<main>
+    <div class="slider">
+
+    </div>
+
+    <div class="container first-container">
+
+        <h1>  Your Cart</h1>
+        <table class="table table-hover mt-5">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product Image</th>
+                <th scope="col">Option</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                {% for carts in cart %}
+
+                {% for items in item %}
+
+                {% if items.id == carts.product_id %}
+              <tr>
+                <td>{{items.product_name}}</td>
+                <td>{{items.product_price}}</td>
+                <td><img src="/{{items.product_image}}" alt="" width="300" height="200"></td>
+                <td>
+                   <a href="/product/buyproduct/{{items.id}}/{{user.id}}"><button type="btn" class="btn btn-primary">Buy</button></a>     
+                   <a href="/viewdetails/{{items.id}}"><button type="btn" class="btn btn-info">Details</button></a>     
+                   <a href="/product/cart_delete/{{items.id}}/{{user.id}}"><button type="btn" class="btn btn-danger">Delete</button></a> 
+                </td>
+              </tr>
+
+              {% endif %}
+
+              {% endfor %}
+
+              {% endfor %}
+              
+            </tbody>
+          </table>
+    </div>
+</main>
+
+
+{%endblock%}
+
+

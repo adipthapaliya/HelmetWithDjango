@@ -1,0 +1,214 @@
+{% extends 'adminbase.html'%}
+
+{% load static%}
+ {% block css %}
+<style>
+    figure {
+        width: 90%;
+        margin: 0 auto !important;
+    }
+    img {
+        width: 100%;
+    }
+
+    .slider{
+    height: 70vh;
+    background-image: url(../../static/image/index/motorcycle-6288958_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.main-container{
+    margin: 8vh 0;
+}
+
+</style>
+<link rel="stylesheet" href="{% static 'css/admin/additem.css'%}" />
+{% endblock %} {% block content %}
+
+<main class="">
+
+    <div class="slider">
+
+    </div>
+    <div class="container main-container first-container">
+        <div class="row ">
+            <div class="col-12">
+                {% if product.id is None%}
+
+                <p><b>Add Product</b></p>
+
+                {% else %}
+
+                <p><b>Edit Product</b></p>
+
+
+                {% endif %}
+            </div>
+            <form
+                action="/product/addproduct"
+                method="post"
+                enctype="multipart/form-data"
+            >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="product name" class="form-label"
+                                >Product Name</label
+                            >
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder=""
+                                value="{{product.product_name}}"
+                                required
+                                name="product_name"
+                            />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="product-price" class="form-label"
+                                >Product Price</label
+                            >
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder=""
+                                value="{{product.product_price}}"
+                                required
+                                name="product_price"
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="product-price" class="form-label"
+                                >Brand</label
+                            >
+                            <select name="product_category"  class="form-select" aria-label="Default select example" >
+                                <option   selected disabled>Choose One</option>
+                                <option value="nike">Nike</option>
+                                <option  value="adidas">Adidas</option>
+                                <option  value="converse">Converse</option>
+                                <option  value="puma">Puma</option>
+
+                                <option value="cookies">Cookies</option>
+
+                              </select>
+                        </div>
+                        <div class="mb-3">
+                            <label
+                                for="exampleFormControlTextarea3"
+                                class="form-label"
+                                >Product Details</label
+                            >
+                            <textarea
+                                class="form-control"
+                                id="exampleFormControlTextarea3"
+                                rows="4"
+                                name="product_details"
+                            >
+{{product.product_details}}</textarea
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <label
+                                for="exampleFormControlTextarea3"
+                                class="form-label"
+                                >Description</label
+                            >
+                            <textarea
+                                class="form-control"
+                                id="exampleFormControlTextarea3"
+                                rows="7"
+                                name="product_description"
+                            >{{product.product_description}}
+                        </textarea
+                            >
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        {% if product.product_image is None%}
+                        <figure class="figure mt-5 mb-3">
+                            <img
+                                id="output-image"
+                                src="{% static 'image/download.svg' %}"
+                                class="figure-img img-fluid rounded"
+                                alt="A generic square placeholder image with rounded corners in a figure."
+                            />
+                            <figcaption class="figure-caption text-center">
+                                A caption for the above image.
+                            </figcaption>
+                        </figure>
+
+                        {% else %}
+
+                        <figure class="figure mt-5 mb-3">
+                            <img
+                                id="output-image"
+                                src="/{{product.product_image}}"
+                                class="figure-img img-fluid rounded"
+                                alt="A generic square placeholder image with rounded corners in a figure."
+                            />
+                            <figcaption class="figure-caption text-center">
+                                A caption for the above image.
+                            </figcaption>
+                        </figure>
+
+                        {% endif %}
+
+                        <input
+                            type="file"
+                            name="product_image"
+                            accept="image/*"
+                            id="file"
+                            onchange="loadFile(event)"
+                            class="form-control "
+                        />
+                    </div>
+                </div>
+
+                
+
+                <div class="col-12 mt-5">
+
+                    {% if product.id is None%}
+
+                    <input
+                    type="submit"
+                    name=""
+                    id=""
+                    class="btn btn-primary"
+                    value="Add Product"
+                />
+                {% else %}
+
+                <input
+                type="submit"
+                name=""
+                id=""
+                formaction="/product/update/{{product.id}}"
+
+                class="btn btn-primary"
+                value="Edit Product"
+            />
+
+                {% endif %}
+
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %} {% block js%}
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById("output-image");
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+{% endblock %}

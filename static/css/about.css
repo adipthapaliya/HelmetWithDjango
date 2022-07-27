@@ -1,0 +1,30 @@
+ 
+.slider{
+    height: 70vh;
+    background-image: url(../image/index/motorcycle-6288958_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.first-container{
+    background-color: #DDD;
+}
+
+.about-container{
+    padding: 7vh 50px !important;
+}
+
+.about-container p{
+    font-size: 1.2rem;
+}
+
+.about-image img{
+    width: 100%;
+}
+
+.team-image img{
+    width: 100%;
+}
+  

@@ -1,0 +1,113 @@
+{% extends 'base.html'%}
+
+{% block title%} About {%endblock%}
+
+{%load static %}
+
+{%block css %}  <link rel="stylesheet" href="{% static 'css/contact.css'%}"> {% endblock%}
+
+
+{%block content%}
+<main>
+    <div class="slider">
+
+    </div>
+    <div class="first-container">
+        <div class="container contact bg-white">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Rider Helmet Main Showroom</h2>
+                    <hr>
+                </div>
+                <div class="col-4">
+                    <div class="d-flex justify-content-center ">
+                        <i class="fa fa-envelope-o" aria-hidden="true" style="font-size: 1.5rem; padding: 0 10px;"></i>
+                        <h5>Email</h5>
+                    </div>
+                    <div class="text-center text-muted">
+                        <p>info@riderhelment.com</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="d-flex justify-content-center ">
+                        <i class="fa fa-phone" aria-hidden="true" style="font-size: 1.5rem; padding: 0 10px;"></i>
+                        <h5>Phone</h5>
+                    </div>
+                    <div class="text-center text-muted">
+                        <p>+977 9841414487 || 01-4365398</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="d-flex justify-content-center ">
+                        <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 1.5rem; padding: 0 10px;"></i>
+                        <h5>Address</h5>
+                    </div>
+                    <div class="text-center text-muted">
+                        <p>Softwarica Collage, Dhillibazar, KTM </p>
+                    </div>
+                </div>
+                <div class="col-12 map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3608383752066!2d85.32779051536684!3d27.706143132151027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190a74aa1f23%3A0x74ebef82ad0e5c15!2sSoftwarica%20College%20of%20IT%20%26%20E-Commerce!5e0!3m2!1sen!2snp!4v1655054870877!5m2!1sen!2snp" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="container bg-white mt-5 form">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Get In Touch</h2>
+                    <hr>
+                </div>
+                <form action="/contact/sendmessage" method="post">
+
+                    {% csrf_token %}
+                    <p class="fs-5"><b>Name:</b> </p>
+                    <div class="row ">
+                      
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="First name" name="fname">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" name="lname">
+                      </div>
+                      
+                    </div>
+                    <p class="fs-5 mt-4"><b>Contact:</b> </p>
+
+                    <div class="row">
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Email" name="email">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Phone Number" name="phonenumber">
+                        </div>
+                        
+                    </div>
+                    <p class="fs-5 mt-4"><b>Subject:</b> </p>
+
+                    <div class="row">
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Subject" name="subject">
+                        </div> 
+                    </div>
+                    <p class="fs-5 mt-4"><b>Message:</b> </p>
+                    <div class="row ">
+                      <div class="col">
+                        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="8" placeholder="Message" name="message"></textarea>
+                    </div>
+                    </div>
+                    <div class="row mt-5">
+                      <div class="col">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+
+            </div>
+        </div>
+    </div>
+    </main>
+{%endblock%}
+
+

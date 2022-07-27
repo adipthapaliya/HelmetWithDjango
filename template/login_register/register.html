@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {%load static %}
+
+    <link rel="stylesheet" href="{% static 'css/common/login.css'%}" />    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+</head>
+<body>
+
+    <main>
+        <div class="container form text-wrap">
+            <div class="row">
+                <div class="col-lg-6 form-part d-flex  justify-content-center align-items-center text-wrap">
+                    <div>
+                        <h3>Register</h3>
+                        <p class="mb-4 text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <form action="/register/createuser" method="post">
+                          {%csrf_token%}
+
+                            <div class="mb-3">
+                                <label for="fullnameInput" class="form-label">Username</label>
+                                <input type="name" class="form-control" id="fullnameInput" aria-describedby="name" placeholder="Full Name"  name="fname">
+                              </div>
+                            <div class="mb-3">
+                                <label for="usernameinput" class="form-label">Username</label>
+                                <input type="username" class="form-control" id="usernameinput" aria-describedby="username" placeholder="Username" name="username">
+                              </div>
+                              <div class="mb-3">
+                                <label for="phoneInput" class="form-label">Phone Number</label>
+                                <input type="phone" class="form-control" id="phoneInput" aria-describedby="phone" placeholder="Phone Number" name="email">
+                              </div>
+                              <div class="mb-3">
+                                <label for="passwordInput" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="passwordInput" aria-describedby="password" placeholder="Password" name="password">
+                              </div>
+                              <div class="mb-3">
+                                <label for="repasswordInput" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="passwordInput" aria-describedby="password" placeholder="Confirm Password" name="cpassword">
+                              </div>    
+                              <div class="mb-5  form-check">
+                                <div>
+                                    <input type="checkbox" class="form-check-input" id="rememberCheck">
+                                    <label class="form-check-label text-muted" for="rememberCheck">I agree all <a href="">Tearms of Use </a> & <a href="">Privacy Policy</a> </label>
+                                </div>
+                                
+                              </div>
+                              <div class="mb-3 d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                              </div>
+                              <div class="mb-3 text-center">
+                                <p>Already a member ?  <a href="">Login Now</a></p>
+                              </div>
+                        </form>
+                    </div>
+                      
+                </div>
+                <div class="col-lg-6 image-part">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

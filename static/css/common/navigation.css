@@ -1,0 +1,29 @@
+
+.navbar-nav {
+    margin: 0 auto !important;
+  }
+  .navbar-nav > li {
+    padding: 0 18px;
+  }
+  
+  .navbar-brand {
+    padding: 0 50px;
+  }
+  
+  
+  .menu-option > .nav-item .nav-item{
+    height: 100%;
+  }
+  
+  
+  .active {
+    transform: scale(1.2);
+  }
+  .menu-option > .nav-item .nav-link:hover:not(.active) {
+    transition: all 100ms ease-in-out;
+  }
+  .menu-option > .nav-item .nav-link:hover:not(.active) {
+    transform: scale(1.2);
+    color: white;
+  }
+  

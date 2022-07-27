@@ -1,0 +1,16 @@
+/* Footer */
+.footer-container{
+    padding: 10vh 0;
+  }
+  footer li{
+    list-style: none;
+  }
+  footer a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  footer ul li a i{
+    padding: 5px 10px;
+  }
+  

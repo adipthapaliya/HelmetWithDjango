@@ -1,0 +1,68 @@
+  
+  
+.slider{
+    height: 70vh;
+    background-image: url(../image/index/motorcycle-6288958_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.first-container{
+    padding: 10vh 2vw;
+}
+
+/* Shop */
+
+.our-shop li{
+    list-style: none;
+}
+
+.our-shop li a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: all 100ms ease-in-out;
+}
+
+.active-shop{
+    color: #f33f3f !important;
+    font-size: 1.1rem;
+}
+
+.our-shop li:not(.active-shop) a:hover{
+    color: #f33f3f;
+    font-size: 1.1rem;
+}
+
+.helmet-img{
+    height: 35vh;
+}
+
+.helmet-img img{
+    width: 100%;
+    height: 100%;
+
+    margin: 0 auto;
+}
+
+/* Button */
+.helmet-button button {
+    width: 150px;
+    height: 55px;
+    font-size: 1.1rem;
+    background: linear-gradient(to right, black 50%, #4a4a4b 50%);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: 0;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.25s ease-in-out;
+    transform: scale(0.8);
+  }
+  
+  .helmet-button button:hover {
+    background-position: left bottom;
+  }

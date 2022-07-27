@@ -1,0 +1,46 @@
+
+.carousel-item{
+    height: 100vh;
+    transition: all 1s ease;
+  
+  }
+  
+  .carousel-item img{
+    height: 100% !important;
+  }
+  
+  
+  
+  .first-container{
+    padding: 8vh 0;
+  }
+  
+  .helmet-type img{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .helmet-type{
+    transition: all 250ms ease-in-out;
+  }
+  
+  .helmet-type:hover{
+    transform: scale(1.2);
+  }
+  
+  .second-container{
+    background-image: url(../image/index/man-384178.jpg);
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+  }
+  
+  .about{
+    padding: 45px 10px !important;
+  }
+  
+  .about p{
+    font-size: 1.1;
+  }
+  

@@ -1,0 +1,97 @@
+{% extends 'base.html'%}
+
+{% block title%} Home {%endblock%}
+
+{%load static %}
+
+{%block css %}  <link rel="stylesheet" href="{% static 'css/details.css'%}"> {% endblock%}
+
+
+{%block content%}
+
+<main>
+    <div class="slider">
+
+    </div>
+
+    <div class="container first-container">
+
+        <div class="row">
+            <div class="col-lg-6 image-section">
+              <img src="/{{data.product_image}}" alt="">
+            </div>
+            <div class="col-lg-6 description-section">
+              <div>
+                <h1>{{data.product_name}}</h1>
+                <p>{{data.product_details}}</p>
+                <div class="size-button">
+                  <h4>Select Size:</h4>
+                  <button class="button">S</button>
+                  <button class="button button-active">L</button>
+                  <button class="button">XL</button>
+                  <button class="button">XXL</button>
+
+                </div>
+                <h4>Price:</h4>
+                <p>$ {{data.product_price}}</p>
+
+                <div class="button d-flex justify-content-around">
+                  <div class="num-block skin-2">
+                      <div class="num-in">
+                        <span class="minus dis"></span>
+                        <input type="text" class="in-num" value="1" readonly="" />
+                        <span class="plus"></span>
+                      </div>
+                  </div>
+                  {% if request.user.is_authenticated %}
+                    
+                      <div>
+
+                          <a href="/product/add-to-cart/{{data.id}}/{{user.id}}"><button type="button" class="btn btn-dark add-to-cart" >Add To Cart</button></a>
+                      </div>
+                      <div>
+                          <a href="/product/buyproduct/{{data.id}}/{{user.id}}"><button type="button" class="btn btn-primary " >Buy Now</button></a>
+
+                      </div>
+
+                      {% else %}
+
+                      <div>
+
+                        <a href="/login"><button type="button" class="btn btn-dark add-to-cart" >Add To Cart</button></a>
+                    </div>
+                    <div>
+                        <a href="/login"><button type="button" class="btn btn-primary " >Buy Now</button></a>
+
+                    </div>
+
+                    {% endif %}
+                  
+              </div>
+
+              </div>
+            </div>
+        </div>
+        <div class="row description mt-5">
+          <div class="col-12">
+            <h4>Description:</h4>
+            <p>{{data.product_description}}</p>
+          </div>
+        </div>
+    </div>
+    
+</main>
+
+
+
+{%endblock%}
+
+{%block js%} 
+
+    <script src="{% static 'js/quantity.js'%}"></script>
+    <script src="{% static 'js/size.js'%}"></script>
+
+
+{%endblock%}
+
+

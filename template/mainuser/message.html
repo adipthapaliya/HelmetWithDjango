@@ -1,0 +1,77 @@
+{% extends 'adminbase.html'%}
+
+{% block title%} Home {%endblock%}
+
+{%load static %}
+
+{%block css %}
+<style>
+     .slider{
+    height: 70vh;
+    background-image: url(../../static/image/index/motorcycle-6288958_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+  .first-container{
+    margin: 10vh 0;
+  }
+
+</style>
+{% endblock%}
+
+
+{%block content%}
+
+<main>
+    <div class="slider">
+
+    </div>
+
+    <div class="container first-container">
+
+        <h1>  Feedback Message</h1>
+        <table class="table table-hover mt-5">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Contact</th>
+                <th scope="col"> Phone Number</th>
+                <th scope="col">Message</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                {% for messages in message %}
+
+                
+              <tr>
+                <td>{{messages.fname}} {{messages.lname}}</td>
+                <td>
+                    <ul>
+                        <li style="list-style: none;">Email: {{messages.email}}</li>
+                        <li style="list-style: none;">Phone: {{messages.phonenumber}}</li>
+                   </ul>
+                </td>
+                <td>{{messages.subject}}</td>
+                <td>{{messages.message}}</td>
+
+                
+              </tr>
+
+             
+
+              {% endfor %}
+              
+            </tbody>
+          </table>
+    </div>
+</main>
+
+
+{%endblock%}
+
+

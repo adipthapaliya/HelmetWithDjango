@@ -1,0 +1,36 @@
+main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+}
+
+.form-part{
+    padding: 70px 0;
+}
+    
+.image-part{
+    background-image: url(../../image/index/motorcycle-6288958_960_720.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+
+}
+
+.form-part{
+    height: 100%;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .image-part{
+        display: none;
+    }
+}
